@@ -16,6 +16,7 @@
       </a>
       <nav aria-label="Navegação principal">
         <a href="#recursos">Recursos</a>
+        <a href="#exemplos">Exemplos</a>
         <a href="#previa">Prévia</a>
         <a href="#equipe">Equipe</a>
       </nav>
@@ -43,7 +44,7 @@
       <section class="section" id="recursos">
         <div class="section-heading">
           <span>Projeto da equipe 07</span>
-          <h2>Uma proposta simples para virar protótipo navegável.</h2>
+          <h2>Exemplos para centralizar comunicação e participação estudantil.</h2>
         </div>
         <div class="feature-grid">
           
@@ -65,17 +66,44 @@
         </div>
       </section>
 
+      <section class="section examples-section" id="exemplos">
+        <div class="section-heading">
+          <span>Exemplos de uso</span>
+          <h2>Dados fictícios para mostrar como a ideia funcionaria.</h2>
+        </div>
+        <div class="examples-grid">
+          
+        <article class="example-card">
+          <h3>Post de atividade</h3>
+          <p>Aluno que faltou consulta resumo da aula, anexo e tarefa pendente.</p>
+        </article>
+        <article class="example-card">
+          <h3>Votação de líder</h3>
+          <p>Candidatos, prazo e resultado parcial ficam em um espaço organizado.</p>
+        </article>
+        <article class="example-card">
+          <h3>Pedido de materiais</h3>
+          <p>Projetos estudantis registram insumos necessários para análise.</p>
+        </article>
+        </div>
+      </section>
+
       <section class="section preview-section" id="previa">
         <div class="preview-copy">
           <span>Prévia interativa</span>
-          <h2>Experimente uma parte da ideia.</h2>
-          <p data-response>Avisos selecionados: publicações recentes da escola e da turma.</p>
+          <h2>Troque o cenário e veja um exemplo da proposta.</h2>
+          <p data-demo-summary>Post fictício reúne conteúdo, atividade e aviso para quem faltou.</p>
           <div class="chip-row" aria-label="Opções da prévia">
             
-          <button class="chip is-active" type="button" data-response="Avisos selecionados: publicações recentes da escola e da turma.">Avisos</button>
-          <button class="chip" type="button" data-response="Votações selecionadas: acompanhe prazos e candidaturas.">Votações</button>
-          <button class="chip" type="button" data-response="Projetos selecionados: pedidos de materiais e andamento das equipes.">Projetos</button>
+          <button class="chip is-active" type="button" data-scenario-title="Resumo da aula de Redes" data-scenario-summary="Post fictício reúne conteúdo, atividade e aviso para quem faltou." data-scenario-meta="Publicado pela turma" data-scenario-detail="O portal ajuda estudantes a recuperar o que perderam sem depender de mensagens soltas.">Atividades</button>
+          <button class="chip" type="button" data-scenario-title="Líder de turma - votação aberta" data-scenario-summary="Área mostra candidatos, prazo e participação de forma transparente." data-scenario-meta="Encerra sexta-feira" data-scenario-detail="O exemplo demonstra como organizar decisões da turma em um ambiente único.">Votação</button>
+          <button class="chip" type="button" data-scenario-title="Pedido de cabos e conectores" data-scenario-summary="Equipe registra materiais para uma feira técnica fictícia." data-scenario-meta="Status: em análise" data-scenario-detail="A solicitação fica documentada com objetivo do projeto, quantidade e responsável.">Projetos</button>
           </div>
+          <article class="demo-panel" aria-live="polite">
+            <span data-demo-meta>Publicado pela turma</span>
+            <strong data-demo-title>Resumo da aula de Redes</strong>
+            <p data-demo-detail>O portal ajuda estudantes a recuperar o que perderam sem depender de mensagens soltas.</p>
+          </article>
           <button class="button button-primary" type="button" data-demo-action>Explorar portal</button>
           <p class="counter" data-counter>Interações nesta visita: 0</p>
         </div>
