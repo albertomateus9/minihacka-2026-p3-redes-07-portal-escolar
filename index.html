@@ -1,162 +1,308 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portal Escolar | MiniHacka P3 Redes</title>
-    <meta name="description" content="Um portal para publicar posts, artigos, atividades, avisos, feiras, votações de líderes e solicitações de materiais para projetos dos alunos." />
-    <meta name="theme-color" content="#2937a3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Escolar | EETEPA Vilhena Alves</title>
+    <meta name="description" content="Portal integrado de serviços acadêmicos, avisos e central de suporte a laboratórios para a EETEPA Vilhena Alves." />
+    <meta name="theme-color" content="#1e3a8a" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body style="--primary: #2937a3; --secondary: #00a676; --accent: #ef8354;">
+  <body style="--primary: #3b82f6; --secondary: #60a5fa; --accent: #f43f5e; --bg-color: #050a15;">
+    
+    <!-- Glow backgrounds -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Portal Escolar">
         <span class="brand-mark">07</span>
-        <span>Portal</span>
+        <span>Portal Vilhena<span class="brand-dot">.</span></span>
       </a>
       <nav aria-label="Navegação principal">
-        <a href="#recursos">Recursos</a>
-        <a href="#exemplos">Exemplos</a>
-        <a href="#previa">Prévia</a>
+        <a href="#ocorrencias">Reportar Incidentes</a>
+        <a href="#votacoes">Líder de Turma</a>
+        <a href="#avisos">Avisos</a>
         <a href="#equipe">Equipe</a>
       </nav>
     </header>
 
     <main>
+      
+      <!-- HERO SECTION -->
       <section class="hero" id="inicio">
         <div class="hero-copy">
-          <h1>Portal Escolar</h1>
-          <p class="tagline">Posts, avisos, votações e projetos estudantis em um portal.</p>
-          <p>Um portal para publicar posts, artigos, atividades, avisos, feiras, votações de líderes e solicitações de materiais para projetos dos alunos.</p>
+          <span class="badge-tag">Portal Acadêmico</span>
+          <h1>Centralize a vida escolar da EETEPA</h1>
+          <p class="tagline">Registre problemas nos laboratórios de redes e participe das votações de líderes.</p>
+          <p class="hero-description">O **Portal Escolar** foi desenhado como a plataforma unificada para comunicação interna e suporte operacional dos laboratórios de informática da EETEPA Vilhena Alves.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#previa">Explorar portal</a>
-            <a class="button button-secondary" href="#equipe">Conhecer equipe</a>
+            <a class="button button-primary" href="#ocorrencias">Abrir Chamado Técnico</a>
+            <a class="button button-secondary" href="#votacoes">Votar em Líder</a>
           </div>
-          <ol class="step-list" aria-label="Fluxo principal">
-            <li>Publicar conteúdo</li><li>Participar de votação</li><li>Solicitar material</li>
+          <ol class="step-list" aria-label="Funcionalidades úteis">
+            <li>
+              <span class="step-num">01</span>
+              <div>
+                <strong>Reporte Falhas</strong>
+                <span>Notifique teclados ou cabos danificados</span>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <div>
+                <strong>Acompanhe o Status</strong>
+                <span>Veja a fila de manutenção em tempo real</span>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <div>
+                <strong>Vote Democrático</strong>
+                <span>Decida o rumo da sua representação</span>
+              </div>
+            </li>
           </ol>
         </div>
-        <div class="hero-media" aria-label="Visual do projeto">
-          <img src="assets/visual.svg" alt="Prévia visual do site Portal Escolar" />
+        <div class="hero-media-wrapper">
+          <div class="hero-media">
+            <!-- Tech Portal Preview Widget -->
+            <div class="visual-portal-preview glass-panel">
+              <div class="preview-card-header">
+                <span>Painel Operacional</span>
+                <strong class="mode-indicator pulse">Chamados Ativos</strong>
+              </div>
+              <div class="portal-status-display">
+                <span class="status-num" id="active-tickets-counter">3</span>
+                <span class="status-lbl">Chamados na Fila</span>
+              </div>
+              <p class="quick-status-tip">Técnicos respondem em até 24 horas.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="section" id="recursos">
+      <!-- LAB INCIDENT REPORT SECTION -->
+      <section class="section incident-section" id="ocorrencias">
         <div class="section-heading">
-          <span>Projeto da equipe 07</span>
-          <h2>Exemplos para centralizar comunicação e participação estudantil.</h2>
+          <span>Suporte aos Laboratórios</span>
+          <h2>Registro de Ocorrências Técnicas</h2>
+          <p>Encontrou um computador sem internet ou periférico quebrado? Avise o suporte abrindo um chamado técnico abaixo.</p>
+        </div>
+
+        <div class="incident-layout">
+          <!-- Form Card -->
+          <div class="incident-form-card glass-panel">
+            <h3>Abrir Novo Chamado</h3>
+            <form id="incident-form">
+              <div class="form-group">
+                <label for="reporter-name">Seu Nome / Matrícula</label>
+                <input type="text" id="reporter-name" placeholder="Ex: Maria Santos (2026102)" required />
+              </div>
+              <div class="form-group">
+                <label for="lab-select">Laboratório de Origem</label>
+                <select id="lab-select">
+                  <option value="Laboratório de Redes (Lab 1)">Laboratório de Redes (Lab 1)</option>
+                  <option value="Laboratório de Desenvolvimento (Lab 2)">Laboratório de Desenvolvimento (Lab 2)</option>
+                  <option value="Laboratório de Hardware (Lab 3)">Laboratório de Hardware (Lab 3)</option>
+                  <option value="Biblioteca / Computadores">Biblioteca / Computadores</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="category-select">Tipo de Ocorrência</label>
+                <select id="category-select">
+                  <option value="Computador sem Conexão (Internet)">Computador sem Conexão (Internet)</option>
+                  <option value="Periférico Quebrado (Teclado/Mouse)">Periférico Quebrado (Teclado/Mouse)</option>
+                  <option value="Sistema Operacional Travado/Erro">Sistema Operacional Travado/Erro</option>
+                  <option value="Problema no Projetor / Tela">Problema no Projetor / Tela</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="incident-desc">Descrição do Problema</label>
+                <textarea id="incident-desc" rows="3" placeholder="Forneça detalhes adicionais como número da bancada..." required></textarea>
+              </div>
+              <button type="submit" class="button button-primary button-full">Registrar Chamado</button>
+            </form>
+          </div>
+
+          <!-- Incidents History Card -->
+          <div class="incident-list-card glass-panel">
+            <div class="incident-list-header">
+              <h3>Chamados Recentes</h3>
+              <span class="incident-stats-badge" id="incident-stats">0 chamados</span>
+            </div>
+            
+            <div class="incident-list-container">
+              <ul class="incident-list" id="incident-list-element">
+                <!-- Dynamically populated via JS -->
+                <li class="incident-placeholder">Carregando chamados...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEADER VOTING SIMULATOR -->
+      <section class="section voting-section" id="votacoes">
+        <div class="section-heading">
+          <span>Decisão Estudantil</span>
+          <h2>Eleição de Líder de Turma</h2>
+          <p>Participe de forma democrática na escolha do representante da turma de Redes 3º Período.</p>
+        </div>
+
+        <div class="voting-grid">
+          <div class="voting-card glass-panel">
+            <h3>Cédula Eletrônica</h3>
+            <p class="vote-meta">Votação aberta até às 18:00 de sexta-feira.</p>
+            
+            <div class="voting-options">
+              <div class="vote-option-row">
+                <div class="option-details">
+                  <strong>Candidata A: Aline Souza</strong>
+                  <span>Proposta: Mutirão de estudos e grupos de monitoria</span>
+                </div>
+                <button class="button button-primary vote-action-btn" data-candidate="A">Votar</button>
+              </div>
+
+              <div class="vote-option-row">
+                <div class="option-details">
+                  <strong>Candidato B: Bruno Lima</strong>
+                  <span>Proposta: Organização de visitas técnicas de redes</span>
+                </div>
+                <button class="button button-primary vote-action-btn" data-candidate="B">Votar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="voting-results glass-panel">
+            <h3>Resultado Parcial</h3>
+            <div class="result-bar-group">
+              <div class="result-label-row">
+                <span>Aline Souza</span>
+                <span id="pct-candidate-a" class="bold">50%</span>
+              </div>
+              <div class="result-progress-bg">
+                <div class="result-progress-fill" id="fill-candidate-a" style="width: 50%;"></div>
+              </div>
+              <span class="vote-count-text" id="count-candidate-a">50 votos</span>
+            </div>
+
+            <div class="result-bar-group" style="margin-top: 1.5rem;">
+              <div class="result-label-row">
+                <span>Bruno Lima</span>
+                <span id="pct-candidate-b" class="bold">50%</span>
+              </div>
+              <div class="result-progress-bg">
+                <div class="result-progress-fill" id="fill-candidate-b" style="width: 50%;"></div>
+              </div>
+              <span class="vote-count-text" id="count-candidate-b">50 votos</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTAL NOTICES SECTION -->
+      <section class="section notices-section" id="avisos">
+        <div class="section-heading">
+          <span>Painel Informativo</span>
+          <h2>Avisos Pedagógicos</h2>
+          <p>Mantenha-se informado sobre as datas importantes da EETEPA Vilhena Alves.</p>
         </div>
         <div class="feature-grid">
-          
-        <article class="feature-card">
-          <span class="feature-index">01</span>
-          <h3>Conteúdos da turma</h3>
-          <p>Posts e atividades ajudam estudantes que faltaram a acompanhar a rotina.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-index">02</span>
-          <h3>Votações escolares</h3>
-          <p>Eleições para líderes, conselheiros e grêmio podem ser organizadas no portal.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-index">03</span>
-          <h3>Projetos e materiais</h3>
-          <p>Solicitações de insumos apoiam ideias estudantis e feiras.</p>
-        </article>
-        </div>
-      </section>
-
-      <section class="section examples-section" id="exemplos">
-        <div class="section-heading">
-          <span>Exemplos de uso</span>
-          <h2>Dados fictícios para mostrar como a ideia funcionaria.</h2>
-        </div>
-        <div class="examples-grid">
-          
-        <article class="example-card">
-          <h3>Post de atividade</h3>
-          <p>Aluno que faltou consulta resumo da aula, anexo e tarefa pendente.</p>
-        </article>
-        <article class="example-card">
-          <h3>Votação de líder</h3>
-          <p>Candidatos, prazo e resultado parcial ficam em um espaço organizado.</p>
-        </article>
-        <article class="example-card">
-          <h3>Pedido de materiais</h3>
-          <p>Projetos estudantis registram insumos necessários para análise.</p>
-        </article>
-        </div>
-      </section>
-
-      <section class="section preview-section" id="previa">
-        <div class="preview-copy">
-          <span>Prévia interativa</span>
-          <h2>Troque o cenário e veja um exemplo da proposta.</h2>
-          <p data-demo-summary>Post fictício reúne conteúdo, atividade e aviso para quem faltou.</p>
-          <div class="chip-row" aria-label="Opções da prévia">
-            
-          <button class="chip is-active" type="button" data-scenario-title="Resumo da aula de Redes" data-scenario-summary="Post fictício reúne conteúdo, atividade e aviso para quem faltou." data-scenario-meta="Publicado pela turma" data-scenario-detail="O portal ajuda estudantes a recuperar o que perderam sem depender de mensagens soltas.">Atividades</button>
-          <button class="chip" type="button" data-scenario-title="Líder de turma - votação aberta" data-scenario-summary="Área mostra candidatos, prazo e participação de forma transparente." data-scenario-meta="Encerra sexta-feira" data-scenario-detail="O exemplo demonstra como organizar decisões da turma em um ambiente único.">Votação</button>
-          <button class="chip" type="button" data-scenario-title="Pedido de cabos e conectores" data-scenario-summary="Equipe registra materiais para uma feira técnica fictícia." data-scenario-meta="Status: em análise" data-scenario-detail="A solicitação fica documentada com objetivo do projeto, quantidade e responsável.">Projetos</button>
-          </div>
-          <article class="demo-panel" aria-live="polite">
-            <span data-demo-meta>Publicado pela turma</span>
-            <strong data-demo-title>Resumo da aula de Redes</strong>
-            <p data-demo-detail>O portal ajuda estudantes a recuperar o que perderam sem depender de mensagens soltas.</p>
+          <article class="feature-card">
+            <span class="feature-index">Importante</span>
+            <h3>Feira de Ciências 2026</h3>
+            <p>O prazo final para a entrega do escopo dos projetos das equipes de redes foi prorrogado para a próxima segunda-feira. Não deixem de enviar!</p>
           </article>
-          <button class="button button-primary" type="button" data-demo-action>Explorar portal</button>
-          <p class="counter" data-counter>Interações nesta visita: 0</p>
-        </div>
-        <div class="metric-grid">
-          
-          <article class="metric-card">
-            <span>Posts</span>
-            <strong>18 novos</strong>
-            <p>Atividades e artigos recentes.</p>
+          <article class="feature-card">
+            <span class="feature-index">Manutenção</span>
+            <h3>Atualização de Lab de Computação</h3>
+            <p>Nesta quarta-feira, a partir das 14h, o Laboratório 1 estará fechado para a instalação do novo simulador de redes e ajustes de cabeamento físico.</p>
           </article>
-          <article class="metric-card">
-            <span>Votação</span>
-            <strong>Aberta</strong>
-            <p>Líder de turma até sexta.</p>
-          </article>
-          <article class="metric-card">
-            <span>Materiais</span>
-            <strong>5 pedidos</strong>
-            <p>Solicitações em análise.</p>
+          <article class="feature-card">
+            <span class="feature-index">Aviso</span>
+            <h3>Passe Estudantil Passe-Fácil</h3>
+            <p>Os alunos que necessitam emitir a 1ª ou 2ª via da carteira estudantil devem procurar a coordenação acadêmica para retirar a declaração de matrícula assinada.</p>
           </article>
         </div>
       </section>
 
+      <!-- TEAM SECTION -->
       <section class="section team-section" id="equipe">
         <div class="section-heading">
           <span>Integrantes</span>
-          <h2>Funções da equipe no desenvolvimento.</h2>
+          <h2>Equipe de Desenvolvimento</h2>
+          <p>Alunos do 3º período de Redes da EETEPA Vilhena Alves responsáveis pelo desenvolvimento do Portal Escolar.</p>
         </div>
         <div class="team-grid">
-          
-        <article class="member-card">
-          <span>Gerente de Ideias</span>
-          <strong>Maria Eduarda Ferreira</strong>
-        </article>
-        <article class="member-card">
-          <span>Designer</span>
-          <strong>Carlos Daniel Santos</strong>
-        </article>
-        <article class="member-card">
-          <span>Construtor(a) HTML</span>
-          <strong>João Guilherme Seabra</strong>
-        </article>
-        <article class="member-card">
-          <span>Estilista CSS</span>
-          <strong>Fernanda Kristhyna Costa</strong>
-        </article>
+          <article class="member-card">
+            <img class="member-img" src="assets/member_maria.png" alt="Maria Eduarda Ferreira" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="member-avatar-placeholder">MF</div>
+            <span>Gerente de Ideias</span>
+            <strong>Maria Eduarda Ferreira</strong>
+          </article>
+          <article class="member-card">
+            <img class="member-img" src="assets/member_carlos.png" alt="Carlos Daniel Santos" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="member-avatar-placeholder">CS</div>
+            <span>Designer</span>
+            <strong>Carlos Daniel Santos</strong>
+          </article>
+          <article class="member-card">
+            <img class="member-img" src="assets/member_joao.png" alt="João Guilherme Seabra" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="member-avatar-placeholder">JS</div>
+            <span>Construtor HTML</span>
+            <strong>João Guilherme Seabra</strong>
+          </article>
+          <article class="member-card">
+            <img class="member-img" src="assets/member_fernanda.png" alt="Fernanda Kristhyna Costa" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="member-avatar-placeholder">FC</div>
+            <span>Estilista CSS</span>
+            <strong>Fernanda Kristhyna Costa</strong>
+          </article>
         </div>
       </section>
     </main>
 
+    <!-- TICKET MODAL -->
+    <div class="modal-overlay" id="ticket-modal">
+      <div class="ticket-modal-card">
+        <button class="modal-close" id="btn-close-modal" aria-label="Fechar chamado">&times;</button>
+        <div class="ticket-header">
+          <span class="ticket-title">CHAMADO OPERACIONAL</span>
+          <span class="ticket-logo">EETEPA TI Support</span>
+        </div>
+        <div class="ticket-body">
+          <div class="ticket-serial">
+            <span>Protocolo:</span>
+            <strong id="ticket-serial-val">#TK-000000</strong>
+          </div>
+          <div class="ticket-details">
+            <p><strong>Solicitante:</strong> <span id="ticket-reporter-val">Carregando...</span></p>
+            <p><strong>Local:</strong> <span id="ticket-lab-val">Carregando...</span></p>
+            <p><strong>Tipo:</strong> <span id="ticket-cat-val">Carregando...</span></p>
+            <div class="ticket-desc-box">
+              <strong>Descrição:</strong>
+              <p id="ticket-desc-val">Carregando...</p>
+            </div>
+          </div>
+          <div class="ticket-divider"></div>
+          <div class="ticket-footer">
+            <p class="ticket-instruction">Sua ocorrência foi enviada à equipe técnica. Os reparos são processados por ordem de abertura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
-      <p>MiniHacka 2026-1 - 3º período de Redes de Computadores (Integrado).</p>
-      <a href="#inicio">Voltar ao topo</a>
+      <p>&copy; 2026 MiniHacka P3 Redes - EETEPA Vilhena Alves. Todos os direitos reservados.</p>
+      <a href="#inicio">Voltar ao topo &uarr;</a>
     </footer>
 
     <script src="script.js" defer></script>
