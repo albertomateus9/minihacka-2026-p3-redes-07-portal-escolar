@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const ticketModal = document.getElementById("ticket-modal");
   const btnCloseModal = document.getElementById("btn-close-modal");
   const ticketSerialVal = document.getElementById("ticket-serial-val");
-  const ticketReporterVal = document.getElementById("ticket-reporter-val");
-  const ticketLabVal = document.getElementById("ticket-lab-val");
-  const ticketCatVal = document.getElementById("ticket-cat-val");
-  const ticketDescVal = document.getElementById("ticket-desc-val");
+  const ticketTitle = document.querySelector(".ticket-title");
+  const ticketLogo = document.querySelector(".ticket-logo");
+  const ticketInstruction = document.querySelector(".ticket-instruction");
+  const ticketDetailsContainer = document.querySelector(".ticket-details");
 
   function saveIncidents() {
     localStorage.setItem("portal_incidents", JSON.stringify(incidents));
@@ -156,16 +156,74 @@ document.addEventListener("DOMContentLoaded", () => {
       reporterNameInput.value = "";
       incidentDescInput.value = "";
 
-      // Populate Modal & Show
+      // Populate Modal dynamically
       if (ticketSerialVal) ticketSerialVal.textContent = protocolStr;
-      if (ticketReporterVal) ticketReporterVal.textContent = reporter;
-      if (ticketLabVal) ticketLabVal.textContent = lab;
-      if (ticketCatVal) ticketCatVal.textContent = category;
-      if (ticketDescVal) ticketDescVal.textContent = desc;
+      if (ticketTitle) ticketTitle.textContent = "CHAMADO OPERACIONAL";
+      if (ticketLogo) ticketLogo.textContent = "EETEPA TI Support";
+      if (ticketInstruction) {
+        ticketInstruction.textContent = "Sua ocorrência foi enviada à equipe técnica. Os reparos são processados por ordem de abertura.";
+      }
+      if (ticketDetailsContainer) {
+        ticketDetailsContainer.innerHTML = `
+          <p><strong>Solicitante:</strong> <span>${escapeHTML(reporter)}</span></p>
+          <p><strong>Local:</strong> <span>${escapeHTML(lab)}</span></p>
+          <p><strong>Tipo:</strong> <span>${escapeHTML(category)}</span></p>
+          <div class="ticket-desc-box">
+            <strong>Descrição:</strong>
+            <p>${escapeHTML(desc)}</p>
+          </div>
+        `;
+      }
 
       if (ticketModal) {
         ticketModal.classList.add("active");
       }
+    });
+  }
+
+  // --- Insumos Request Logic ---
+  const insumosForm = document.getElementById("insumos-form");
+  if (insumosForm) {
+    insumosForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const leader = document.getElementById("student-group").value.trim();
+      const title = document.getElementById("project-title").value.trim();
+      const item = document.getElementById("insumo-select").value;
+      const qty = document.getElementById("insumo-qty").value.trim();
+      const justification = document.getElementById("project-justification").value.trim();
+
+      if (!leader || !title || !qty || !justification) return;
+
+      const randomNum = Math.floor(100000 + Math.random() * 900000);
+      const protocolStr = `#IN-${randomNum}`;
+
+      // Populate Modal dynamically for Insumos Request
+      if (ticketSerialVal) ticketSerialVal.textContent = protocolStr;
+      if (ticketTitle) ticketTitle.textContent = "REQUISIÇÃO DE INSUMOS";
+      if (ticketLogo) ticketLogo.textContent = "EETEPA Almoxarifado";
+      if (ticketInstruction) {
+        ticketInstruction.textContent = "Sua solicitação de insumos foi registrada e encaminhada para a coordenação técnica. Apresente este protocolo no almoxarifado para retirada.";
+      }
+      if (ticketDetailsContainer) {
+        ticketDetailsContainer.innerHTML = `
+          <p><strong>Líder/Grupo:</strong> <span>${escapeHTML(leader)}</span></p>
+          <p><strong>Projeto:</strong> <span>${escapeHTML(title)}</span></p>
+          <p><strong>Item Solicitado:</strong> <span>${escapeHTML(item)}</span></p>
+          <p><strong>Quantidade:</strong> <span>${escapeHTML(qty)}</span></p>
+          <div class="ticket-desc-box">
+            <strong>Destinação:</strong>
+            <p>${escapeHTML(justification)}</p>
+          </div>
+        `;
+      }
+
+      if (ticketModal) {
+        ticketModal.classList.add("active");
+      }
+
+      // Reset form
+      insumosForm.reset();
     });
   }
 

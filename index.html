@@ -28,6 +28,8 @@
       <nav aria-label="Navegação principal">
         <a href="#ocorrencias">Reportar Incidentes</a>
         <a href="#votacoes">Líder de Turma</a>
+        <a href="#insumos">Solicitar Insumos</a>
+        <a href="#apoio">Material de Apoio</a>
         <a href="#avisos">Avisos</a>
         <a href="#equipe">Equipe</a>
       </nav>
@@ -203,6 +205,128 @@
                 <div class="result-progress-fill" id="fill-candidate-b" style="width: 50%;"></div>
               </div>
               <span class="vote-count-text" id="count-candidate-b">50 votos</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSUMOS REQUEST SECTION -->
+      <section class="section insumos-section" id="insumos">
+        <div class="section-heading">
+          <span>Projetos Estudantis</span>
+          <h2>Solicitação de Insumos para Projetos</h2>
+          <p>Alunos podem solicitar materiais, cabos, conectores ou switches para uso em projetos práticos escolares.</p>
+        </div>
+
+        <div class="insumos-layout">
+          <!-- Insumos Form -->
+          <div class="insumos-form-card glass-panel">
+            <h3>Formulário de Solicitação</h3>
+            <form id="insumos-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="student-group">Líder do Grupo / Matrícula</label>
+                  <input type="text" id="student-group" placeholder="Ex: Ana Clara (2026105)" required />
+                </div>
+                <div class="form-group">
+                  <label for="project-title">Título do Projeto</label>
+                  <input type="text" id="project-title" placeholder="Ex: Protótipo de Rede Inteligente" required />
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="insumo-select">Item Solicitado</label>
+                  <select id="insumo-select" required>
+                    <option value="Cabo de Rede UTP (Metros)">Cabo de Rede UTP (Metros)</option>
+                    <option value="Conectores RJ45 (Unidades)">Conectores RJ45 (Unidades)</option>
+                    <option value="Switch Fast Ethernet 8 Portas">Switch Fast Ethernet 8 Portas</option>
+                    <option value="Alicate de Crimpagem RJ45">Alicate de Crimpagem RJ45</option>
+                    <option value="Roteador Wi-Fi Escolar">Roteador Wi-Fi Escolar</option>
+                    <option value="Fita Isolante / Canaleta">Fita Isolante / Canaleta</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="insumo-qty">Quantidade</label>
+                  <input type="text" id="insumo-qty" placeholder="Ex: 10 metros, 5 un, etc" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="project-justification">Justificativa e Destinação do Insumo</label>
+                <textarea id="project-justification" rows="2" placeholder="Descreva brevemente como o material será utilizado no projeto..." required></textarea>
+              </div>
+
+              <button type="submit" class="button button-primary button-full">Enviar Solicitação de Insumos</button>
+            </form>
+          </div>
+
+          <!-- Live Stock Info -->
+          <div class="insumos-stock-card glass-panel">
+            <h3>Estoque Disponível para Projetos</h3>
+            <ul class="stock-list">
+              <li>
+                <span>Cabo de Rede UTP</span>
+                <strong class="badge-tag-stock instock">120m em estoque</strong>
+              </li>
+              <li>
+                <span>Conectores RJ45</span>
+                <strong class="badge-tag-stock instock">85 un em estoque</strong>
+              </li>
+              <li>
+                <span>Switch 8 Portas</span>
+                <strong class="badge-tag-stock lowstock">2 un em estoque</strong>
+              </li>
+              <li>
+                <span>Alicate Crimpagem</span>
+                <strong class="badge-tag-stock lowstock">3 un em empréstimo</strong>
+              </li>
+              <li>
+                <span>Roteador Wi-Fi</span>
+                <strong class="badge-tag-stock outstock">0 un (solicitar coord.)</strong>
+              </li>
+            </ul>
+            <p class="stock-warning-text">⚠️ <strong>Atenção:</strong> Ferramentas como alicates de crimpagem e switches devem ser devolvidos ao final do projeto pedagógico.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABSENT STUDENTS SUPPORT SECTION -->
+      <section class="section apoio-section" id="apoio">
+        <div class="section-heading">
+          <span>Apoio Pedagógico</span>
+          <h2>Central de Apoio a Alunos Ausentes</h2>
+          <p>Perdeu alguma aula? Acesse os resumos, laboratórios práticos e materiais de apoio das últimas aulas ministradas.</p>
+        </div>
+
+        <div class="apoio-grid">
+          <div class="apoio-card glass-panel">
+            <span class="subject-tag">Redes de Computadores</span>
+            <h3>Apostila de Cabeamento Estruturado</h3>
+            <p class="apoio-meta">Aula de 14/05 • Prof. Alberto</p>
+            <p class="apoio-desc">Guia passo a passo descrevendo o padrão de crimpagem T568A e T568B, com diagramas de cores e dicas de testes físicos.</p>
+            <div class="apoio-actions">
+              <a href="#" class="btn-download" onclick="alert('Iniciando visualização do arquivo PDF de Apoio...'); return false;">Visualizar PDF</a>
+            </div>
+          </div>
+
+          <div class="apoio-card glass-panel">
+            <span class="subject-tag">Instalação e Configuração</span>
+            <h3>Laboratório Roteamento Packet Tracer</h3>
+            <p class="apoio-meta">Aula de 18/05 • Profa. Gabriela</p>
+            <p class="apoio-desc">Arquivo de laboratório prático configurando roteamento estático entre três roteadores e sub-redes distintas. Inclui roteamento padrão.</p>
+            <div class="apoio-actions">
+              <a href="#" class="btn-download" onclick="alert('Iniciando download do laboratório .pkt...'); return false;">Baixar Lab (.pkt)</a>
+            </div>
+          </div>
+
+          <div class="apoio-card glass-panel">
+            <span class="subject-tag">Serviços de Rede</span>
+            <h3>Resumo de Protocolo TCP/IP e Portas</h3>
+            <p class="apoio-meta">Aula de 19/05 • Prof. Ítalo</p>
+            <p class="apoio-desc">Tabela de referência rápida das portas e serviços fundamentais (HTTP, HTTPS, SSH, FTP, DNS, DHCP) e seu funcionamento em redes locais.</p>
+            <div class="apoio-actions">
+              <a href="#" class="btn-download" onclick="alert('Iniciando visualização do resumo em Markdown...'); return false;">Visualizar Resumo</a>
             </div>
           </div>
         </div>

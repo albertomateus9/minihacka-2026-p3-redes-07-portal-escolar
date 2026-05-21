@@ -1056,3 +1056,170 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* Insumos & Apoio Sections Styles */
+.insumos-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.insumos-form-card h3, .insumos-stock-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.insumos-stock-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stock-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--card-border);
+  font-size: 0.95rem;
+}
+
+.stock-list li:last-child {
+  border-bottom: none;
+}
+
+.badge-tag-stock {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-tag-stock.instock {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--success);
+  color: #34d399;
+}
+
+.badge-tag-stock.lowstock {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid var(--warning);
+  color: #fbbf24;
+}
+
+.badge-tag-stock.outstock {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--accent);
+  color: #fca5a5;
+}
+
+.stock-warning-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  border-top: 1px solid var(--card-border);
+  padding-top: 1rem;
+}
+
+/* Apoio Central Grid */
+.apoio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.apoio-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  min-height: 280px;
+  transition: all 0.3s ease;
+}
+
+.apoio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.subject-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.apoio-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+}
+
+.apoio-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.apoio-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-download:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #060913;
+  box-shadow: 0 0 12px var(--primary-glow);
+}
+
+/* Responsive adjustments for Insumos and Apoio */
+@media (max-width: 992px) {
+  .insumos-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .apoio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .apoio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
