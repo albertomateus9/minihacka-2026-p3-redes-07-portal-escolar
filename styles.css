@@ -33,6 +33,10 @@
 body {
   font-family: var(--font-body);
   background-color: var(--bg-color);
+  background-image: linear-gradient(rgba(6, 9, 19, 0.9), rgba(6, 9, 19, 0.95)), url('assets/bookshelf_bg.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   color: var(--text-color);
   overflow-x: hidden;
   position: relative;
@@ -106,16 +110,15 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
+.brand-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 900;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 .brand-dot {
@@ -856,8 +859,17 @@ main {
 }
 
 .member-card strong {
-  font-size: 1.05rem;
+  font-size: 0.85rem;
   color: #ffffff;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 0.35rem;
+}
+
+.member-card:hover strong {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Footer Section */
